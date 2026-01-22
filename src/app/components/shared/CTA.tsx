@@ -2,7 +2,12 @@
 
 import { motion } from "framer-motion";
 
-export default function CTA() {
+type CTAProps = {
+  title: string;
+  subtitle: string;
+};
+
+export default function CTA({ title, subtitle }: CTAProps) {
   return (
     <section className="section-card flex flex-col items-center text-center py-16 mx-6 md:mx-12">
       
@@ -12,7 +17,7 @@ export default function CTA() {
         transition={{ duration: 0.8 }}
         className="text-3xl md:text-4xl font-bold text-white max-w-3xl"
       >
-        Let’s build something impactful.
+        {title}
       </motion.h2>
 
       <motion.p
@@ -21,7 +26,7 @@ export default function CTA() {
         transition={{ duration: 0.8, delay: 0.2 }}
         className="mt-4 text-lg md:text-xl text-gray-300 max-w-2xl"
       >
-        I combine software, AI, and marketing expertise to craft experiences that grow businesses.
+        {subtitle}
       </motion.p>
 
       <motion.div

@@ -1,4 +1,5 @@
 interface Props {
+  variant?: string;
   title: string;
   goal: string;
   role?: string;
@@ -8,6 +9,7 @@ interface Props {
 }
 
 export default function CaseStudy({
+  variant,
   title,
   goal,
   role,
