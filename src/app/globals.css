@@ -1,26 +1,194 @@
 @import "tailwindcss";
 
+/* ============================
+   FONT — Serious & Professional
+============================= */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* ============================
+   CORE COLORS — Wakanda Tech
+============================= */
+:root {
+  --background: radial-gradient(circle at top, #0d1224 0%, #060a14 45%, #04050a 100%);
+  --section: rgba(10, 14, 35, 0.78);
+  --border-glow: rgba(120, 95, 255, 0.6);
+  --neon-blue: #5bc8ff;
+  --neon-purple: #9a5bff;
+  --text-main: #e8ecff;
 }
 
+/* ============================
+   DARK MODE (Optional override)
+============================= */
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --text-main: #eef2ff;
   }
 }
 
+/* ============================
+   BASE STYLES
+============================= */
 body {
   background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  color: var(--text-main);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  transition: all .2s ease;
+}
+
+/* ============================
+   SECTION GLASS CARD STYLE
+============================= */
+.section-card {
+  background: var(--section);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(120, 95, 255, 0.25);
+  border-radius: 22px;
+  box-shadow: 
+    0 0 25px rgba(120, 95, 255, 0.15),
+    inset 0 0 12px rgba(255,255,255,0.05);
+  padding: 2.5rem;
+}
+
+/* ============================
+   NEON BUTTON — Glow + Lift
+============================= */
+@import "tailwindcss";
+
+/* ============================
+   FONT — Serious & Professional
+============================= */
+:root {
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+}
+
+/* ============================
+   CORE COLORS — Wakanda Tech
+============================= */
+:root {
+  --background: radial-gradient(circle at top, #0d1224 0%, #060a14 45%, #04050a 100%);
+  --section: rgba(10, 14, 35, 0.78);
+  --border-glow: rgba(120, 95, 255, 0.6);
+  --neon-blue: #5bc8ff;
+  --neon-purple: #9a5bff;
+  --text-main: #e8ecff;
+}
+
+/* ============================
+   DARK MODE (Optional override)
+============================= */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text-main: #eef2ff;
+  }
+}
+
+/* ============================
+   BASE STYLES
+============================= */
+body {
+  background: var(--background);
+  color: var(--text-main);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  transition: all .2s ease;
+}
+
+/* ============================
+   SECTION GLASS CARD STYLE
+   (use className="section-card")
+============================= */
+.section-card {
+  background: var(--section);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(120, 95, 255, 0.25);
+  border-radius: 22px;
+  box-shadow: 
+    0 0 25px rgba(120, 95, 255, 0.15),
+    inset 0 0 12px rgba(255,255,255,0.05);
+  padding: 2.5rem;
+}
+
+/* ============================
+   NEON BUTTON — Glow Beneath + Lift
+   (use className="neon-btn")
+============================= */
+.neon-btn {
+  position: relative;
+  display: inline-block;       
+  padding: 12px 28px;          
+  border-radius: 14px;
+  border: 2px solid rgba(150,120,255,0.6);
+  color: white;
+  font-weight: 600;
+  letter-spacing: .3px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;       
+  background: linear-gradient(135deg, #0e1433, #10194a);
+  box-shadow:
+    0 0 0 rgba(120,95,255,0),
+    inset 0 0 18px rgba(80,60,180,.25);
+  transition: all 0.25s ease;
+  transform: translateY(0);
+  z-index: 0;                  
+}
+
+/* Hover Lift + Border */
+.neon-btn:hover {
+  transform: translateY(-3px); 
+  border-color: rgba(150,120,255,0.9);
+  box-shadow:
+    0 0 12px rgba(150,120,255,0.7),
+    0 0 28px rgba(100,150,255,0.4),
+    inset 0 0 25px rgba(150,120,255,0.35);
+}
+
+/* Click Effect */
+.neon-btn:active {
+  transform: translateY(0);
+  box-shadow:
+    0 0 6px rgba(150,120,255,0.5),
+    inset 0 0 12px rgba(120,95,255,0.4);
+}
+
+/* Neon Glow Beneath */
+.neon-btn::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -8px;                 
+  transform: translateX(-50%);
+  width: 80%;                    
+  height: 14px;                  
+  border-radius: 50%;            
+  background: rgba(154,91,255,0.9); 
+  filter: blur(18px);            
+  opacity: 0;
+  pointer-events: none;
+  z-index: -1;
+  transition: opacity 0.25s;
+}
+
+/* Glow Activation + Pulse */
+.neon-btn:hover::after {
+  opacity: 1;
+  animation: neonPulse 1.4s ease-in-out infinite;
+}
+
+@keyframes neonPulse {
+  0% { opacity: 0.5; }
+  50% { opacity: 1; }
+  100% { opacity: 0.5; }
 }
