@@ -1,12 +1,10 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import "pannellum/build/pannellum.js";
 import "pannellum/build/pannellum.css";
-import "./Page1.css";
 
 /* ---------------- HOTSPOT UI ---------------- */
-function hotspotLink(hotSpotDiv, args) {
+function hotspotLink(hotSpotDiv: any, args: any) {
   hotSpotDiv.classList.add("custom-tooltip", "hotspot-dark");
   hotSpotDiv.innerHTML = `<button class="hotspot-btn">${args.text}</button>`;
   hotSpotDiv.querySelector("button").onclick = () => args.onClick();
@@ -170,47 +168,52 @@ const scenes = [
   },
 ];
 
-export default function page() {
-  const viewerRef = useRef(null);
-  const viewerInstance = useRef(null);
+export default function Page() {
+  const viewerRef = useRef<HTMLDivElement>(null);
+  const viewerInstance = useRef<any>(null);
 
   useEffect(() => {
-    const pannellum = window.pannellum;
-    if (!pannellum?.viewer) return;
+    const loadPannellum = async () => {
+      await import("pannellum/build/pannellum.js");
 
-    const sceneConfig = {};
-    scenes.forEach((scene) => {
-      sceneConfig[scene.id] = {
-        type: "equirectangular",
-        panorama: scene.panorama,
-        pitch: scene.pitch,
-        yaw: scene.yaw,
-        hfov: scene.hfov,
-        hotSpots: scene.hotSpots.map((spot) => ({
-          pitch: spot.pitch,
-          yaw: spot.yaw,
-          type: spot.type,
-          createTooltipFunc: hotspotLink,
-          createTooltipArgs: {
-            text: spot.text,
-            onClick: () => viewerInstance.current.loadScene(spot.targetSceneId),
-          },
-        })),
-      };
-    });
+      const pannellum = (window as any).pannellum;
 
-    viewerInstance.current = pannellum.viewer(viewerRef.current, {
-      default: { firstScene: "entrance" },
-      scenes: sceneConfig,
-      autoLoad: true,
-      showLoading: false,
-      sceneFadeDuration: 0,
-      compass: true,
-      showFullscreenCtrl: true,
-      showZoomCtrl: true,
-    });
+      const sceneConfig: any = {};
+      scenes.forEach((scene) => {
+        sceneConfig[scene.id] = {
+          type: "equirectangular",
+          panorama: scene.panorama,
+          pitch: scene.pitch,
+          yaw: scene.yaw,
+          hfov: scene.hfov,
+          hotSpots: scene.hotSpots.map((spot) => ({
+            pitch: spot.pitch,
+            yaw: spot.yaw,
+            type: spot.type,
+            createTooltipFunc: hotspotLink,
+            createTooltipArgs: {
+              text: spot.text,
+              onClick: () => viewerInstance.current.loadScene(spot.targetSceneId),
+            },
+          })),
+        };
+      });
 
-    return () => viewerInstance.current.destroy();
+      viewerInstance.current = pannellum.viewer(viewerRef.current, {
+        default: { firstScene: "entrance" },
+        scenes: sceneConfig,
+        autoLoad: true,
+        showLoading: false,
+        sceneFadeDuration: 0,
+        compass: true,
+        showFullscreenCtrl: true,
+        showZoomCtrl: true,
+      });
+    };
+
+    loadPannellum();
+
+    return () => viewerInstance.current?.destroy();
   }, []);
 
   return (
