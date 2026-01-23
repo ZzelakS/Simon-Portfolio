@@ -39,22 +39,6 @@ export default function DevPage() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
       >
-        <CaseStudy
-          variant="dev"
-          title="VR Experience Center"
-          goal="Build a booking-driven entertainment platform"
-          role="System Design · Frontend · CX"
-          build={[
-            "Booking platform architecture",
-            "Customer journey design",
-            "Retention & loyalty logic",
-          ]}
-          impact={[
-            "Improved session bookings",
-            "Clearer customer flow",
-            "Repeat engagement",
-          ]}
-        />
 
         <CaseStudy
           title="360° Virtual Showroom"
@@ -75,6 +59,25 @@ export default function DevPage() {
             href: "/dev/360",
           }}
         />
+
+          <CaseStudy
+            variant="dev"
+            title="VR Experience Center"
+            goal="Build a booking-driven entertainment platform"
+            role="System Design · Frontend · CX"
+            build={[
+              "Booking platform architecture",
+              "Customer journey design",
+              "Retention & loyalty logic",
+            ]}
+            impact={[
+              "Improved session bookings",
+              "Clearer customer flow",
+              "Repeat engagement",
+            ]}
+            websiteUrl="https://vrplacenigeria.com"
+            repoUrl="https://github.com/ZzelakS/VRPlace"
+          />
 
         <CaseStudy
           variant="dev"

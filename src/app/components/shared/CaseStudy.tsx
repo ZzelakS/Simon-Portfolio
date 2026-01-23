@@ -6,12 +6,13 @@ interface Props {
   build: string[];
   impact: string[];
   skills?: string[];
+  websiteUrl?: string;
+  repoUrl?: string;
   cta?: {
     label: string;
     href: string;
   };
 }
-
 
 import Link from "next/link";
 
@@ -23,6 +24,8 @@ export default function CaseStudy({
   build,
   impact,
   skills,
+  websiteUrl,
+  repoUrl,
   cta,
 }: Props) {
 
@@ -68,20 +71,32 @@ export default function CaseStudy({
           <span className="text-gray-300">{skills.join(" • ")}</span>
         </p>
       )}
-      {cta && (
-  <div className="mt-10">
-    <Link
-      href={cta.href}
-      className="inline-flex items-center gap-2 px-6 py-3 rounded-lg
-                 border border-white/20 text-white
-                 hover:bg-white hover:text-black
-                 transition"
-    >
-      {cta.label}
-    </Link>
-  </div>
-)}
 
+      {/* Website + Repo Buttons */}
+      {(websiteUrl || repoUrl) && (
+        <div className="mt-10 flex flex-wrap gap-4">
+          {websiteUrl && (
+            <Link href={websiteUrl} target="_blank" rel="noreferrer" className="neon-btn relative">
+              Visit Website
+            </Link>
+          )}
+
+          {repoUrl && (
+            <Link href={repoUrl} target="_blank" rel="noreferrer" className="neon-btn relative">
+              Repo Link
+            </Link>
+          )}
+        </div>
+      )}
+
+      {/* CTA (optional) */}
+      {cta && (
+        <div className="mt-10">
+          <Link href={cta.href} className="neon-btn relative">
+            {cta.label}
+          </Link>
+        </div>
+      )}
     </section>
   );
 }

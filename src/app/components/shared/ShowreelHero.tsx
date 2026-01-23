@@ -45,7 +45,7 @@ export default function ShowreelHero({
 
         <a
           href="#creator-work"
-          className="mt-10 inline-block w-fit px-6 py-3 rounded-xl border border-white/30 text-white backdrop-blur hover:bg-white/10 transition"
+          className="mt-10 inline-block w-fit px-6 py-3 rounded-xl border neon-btn relative"
         >
           View Creator Work
         </a>
