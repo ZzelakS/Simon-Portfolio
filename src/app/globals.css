@@ -32,12 +32,16 @@
    BASE STYLES
 ============================= */
 body {
-  background: var(--background);
+  background-image: url('/images/background.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   color: var(--text-main);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
+
 
 * {
   transition: all .2s ease;
@@ -94,12 +98,16 @@ body {
    BASE STYLES
 ============================= */
 body {
-  background: var(--background);
+  background-image: url('/images/background.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   color: var(--text-main);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
+
 
 * {
   transition: all .2s ease;

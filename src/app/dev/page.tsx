@@ -10,12 +10,10 @@ import AnimatedGlow from "../components/shared/AnimatedGlow";
 export default function DevPage() {
   return (
     <main className="max-w-7xl mx-auto px-6 md:px-12">
-
       {/* =========================
           HERO
       ========================== */}
       <section className="min-h-screen flex flex-col justify-center relative overflow-hidden">
-
         {/* Glow layer */}
         <AnimatedGlow />
 
@@ -25,14 +23,12 @@ export default function DevPage() {
         {/* Content */}
         <div className="relative z-10">
           <Hero
-  title="Building digital experiences, AI workflows, and marketing systems that grow businesses."
-  subtitle="I’m Simon — a software creator and digital marketer. I design and launch products, VR experiences, ecommerce platforms, AI agents, and customer acquisition systems that drive real-world results."
-  cta1="View Projects"
-  cta2="Work With Me"
-/>
-
+            title="Building digital experiences, AI workflows, and marketing systems that grow businesses."
+            subtitle="I’m Simon — a software creator and digital marketer. I design and launch products, VR experiences, ecommerce platforms, AI agents, and customer acquisition systems that drive real-world results."
+            cta1="View Projects"
+            cta2="Work With Me"
+          />
         </div>
-
       </section>
 
       {/* =========================
@@ -61,18 +57,23 @@ export default function DevPage() {
         />
 
         <CaseStudy
-          variant="dev"
           title="360° Virtual Showroom"
-          goal="Turn immersive media into a sales-ready experience"
+          goal="An immersive, sales-focused VR experience for product exploration"
+          role="Frontend Engineer & XR Developer"
           build={[
-            "360 viewer architecture",
-            "Firebase backend",
-            "XR interaction layer",
+            "360° image-based viewer",
+            "Interactive hotspots",
+            "Firebase-powered content management",
           ]}
           impact={[
-            "Longer engagement time",
-            "Improved product exploration",
+            "Increased engagement time",
+            "Improved product understanding",
           ]}
+          skills={["React", "Three.js", "WebXR", "Firebase"]}
+          cta={{
+            label: "Enter 360° Experience",
+            href: "/dev/360",
+          }}
         />
 
         <CaseStudy
@@ -84,10 +85,7 @@ export default function DevPage() {
             "Firebase backend",
             "Checkout flow optimization",
           ]}
-          impact={[
-            "Simplified ordering",
-            "Faster checkout experience",
-          ]}
+          impact={["Simplified ordering", "Faster checkout experience"]}
         />
 
         <CaseStudy
@@ -99,10 +97,7 @@ export default function DevPage() {
             "Conversation routing",
             "CRM tagging logic",
           ]}
-          impact={[
-            "Faster replies",
-            "Saved internal time",
-          ]}
+          impact={["Faster replies", "Saved internal time"]}
         />
       </motion.section>
 
@@ -122,7 +117,6 @@ export default function DevPage() {
           subtitle="Let’s talk."
         />
       </section>
-
     </main>
   );
 }

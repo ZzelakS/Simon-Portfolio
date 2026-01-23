@@ -21,3 +21,11 @@
     transform: scale(1);
   }
 }
+
+.pnllm-loader,
+.pnllm-loading,
+.pannellum-loader,
+.pannellum-loading {
+  display: none !important;
+}
+

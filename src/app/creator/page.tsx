@@ -34,10 +34,14 @@ export default function CreatorPage() {
   <h2 className="text-3xl font-bold mb-8">Creator Work</h2>
 
   <div className="grid md:grid-cols-2 gap-8">
-  <VimeoPlayer videoId="1154964684" title="Content Strategy — Case Study" />
-  <VimeoPlayer videoId="YOUR_VIMEO_ID_2" title="Short-Form — Culture" />
-  <VimeoPlayer videoId="YOUR_VIMEO_ID_3" title="Travel — Diaspora" />
-  <VimeoPlayer videoId="YOUR_VIMEO_ID_4" title="Community & Events" />
+  <VimeoPlayer videoId="1154964684" title="VR Promo" />
+  <VimeoPlayer videoId="1154979765" title="Shortlet Promo" />
+  <VimeoPlayer videoId="1154958476" title="Teambonding Promo" />
+  <VimeoPlayer videoId="1154960527" title="Apartment Promo" />
+  {/* <VimeoPlayer videoId="1154964684" title="VR Promo" />
+  <VimeoPlayer videoId="1154979765" title="Shortlet Promo" />
+  <VimeoPlayer videoId="1154958476" title="Teambonding Promo" />
+  <VimeoPlayer videoId="1154960527" title="Community & Events" /> */}
 </div>
 
 </motion.section>

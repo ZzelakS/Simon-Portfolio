@@ -1,12 +1,13 @@
 import "./globals.css";
 import { Inter } from "next/font/google";
-import Navbar from "./components/shared/Navbar"; // <-- add this
+import Navbar from "./components/shared/Navbar";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Simon — Product & Growth",
-  description: "Building digital experiences, AI workflows, and growth systems for modern businesses.",
+  description:
+    "Building digital experiences, AI workflows, and growth systems for modern businesses.",
 };
 
 export default function RootLayout({
@@ -15,14 +16,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={`${inter.className} bg-gray-900 text-white`}>
+    <html lang="en" suppressHydrationWarning>
+      <body
+        suppressHydrationWarning
+        className={`${inter.className} bg-gray-900 text-white`}
+      >
         <Navbar />
-
-        {/* this prevents content from hiding behind the navbar */}
-        <div className="pt-16">
-          {children}
-        </div>
+        <div className="pt-16">{children}</div>
       </body>
     </html>
   );

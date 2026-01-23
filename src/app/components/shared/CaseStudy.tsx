@@ -6,7 +6,14 @@ interface Props {
   build: string[];
   impact: string[];
   skills?: string[];
+  cta?: {
+    label: string;
+    href: string;
+  };
 }
+
+
+import Link from "next/link";
 
 export default function CaseStudy({
   variant,
@@ -16,7 +23,9 @@ export default function CaseStudy({
   build,
   impact,
   skills,
+  cta,
 }: Props) {
+
   return (
     <section className="section-card max-w-5xl mx-auto p-8 my-10">
 
@@ -59,6 +68,20 @@ export default function CaseStudy({
           <span className="text-gray-300">{skills.join(" • ")}</span>
         </p>
       )}
+      {cta && (
+  <div className="mt-10">
+    <Link
+      href={cta.href}
+      className="inline-flex items-center gap-2 px-6 py-3 rounded-lg
+                 border border-white/20 text-white
+                 hover:bg-white hover:text-black
+                 transition"
+    >
+      {cta.label}
+    </Link>
+  </div>
+)}
+
     </section>
   );
 }
