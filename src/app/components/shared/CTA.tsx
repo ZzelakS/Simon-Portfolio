@@ -10,7 +10,6 @@ type CTAProps = {
 export default function CTA({ title, subtitle }: CTAProps) {
   return (
     <section className="section-card flex flex-col items-center text-center py-16 mx-6 md:mx-12">
-      
       <motion.h2
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -29,31 +28,57 @@ export default function CTA({ title, subtitle }: CTAProps) {
         {subtitle}
       </motion.p>
 
-      <motion.div
+      {/* =========================
+          CONTACT FORM
+      ========================== */}
+      <motion.form
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.4 }}
-        className="flex flex-wrap gap-6 mt-8 justify-center"
+        className="w-full max-w-xl mt-10"
       >
-        <motion.a
-          href="#contact"
-          className="neon-btn relative"
-          whileHover={{ y: -3, scale: 1.05 }}
-          whileTap={{ y: 0, scale: 0.98 }}
-        >
-          Contact
-        </motion.a>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <input
+            type="text"
+            placeholder="Your Name"
+            className="input-field"
+            required
+          />
+          <input
+            type="email"
+            placeholder="Your Email"
+            className="input-field"
+            required
+          />
+        </div>
 
-        <motion.a
-          href="#booking"
-          className="neon-btn relative"
-          whileHover={{ y: -3, scale: 1.05 }}
-          whileTap={{ y: 0, scale: 0.98 }}
-        >
-          Book a Call
-        </motion.a>
-      </motion.div>
+        <textarea
+          placeholder="How can I help you?"
+          className="input-field mt-4 min-h-[140px]"
+          required
+        />
 
+        <button
+          type="submit"
+          className="neon-btn relative mt-6 w-full"
+        >
+          Send Message
+        </button>
+      </motion.form>
+
+      {/* =========================
+          WHATSAPP BUTTON
+      ========================== */}
+      <motion.a
+        href="https://wa.me/234XXXXXXXXXX"
+        target="_blank"
+        rel="noreferrer"
+        className="neon-btn relative mt-6"
+        whileHover={{ y: -3, scale: 1.05 }}
+        whileTap={{ y: 0, scale: 0.98 }}
+      >
+        WhatsApp
+      </motion.a>
     </section>
   );
 }

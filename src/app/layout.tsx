@@ -1,6 +1,7 @@
 import "./globals.css";
 import { Inter } from "next/font/google";
 import Navbar from "./components/shared/Navbar";
+import BackToTop from "./components/shared/BackToTop";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,6 +23,7 @@ export default function RootLayout({
         className={`${inter.className} bg-gray-900 text-white`}
       >
         <Navbar />
+        <BackToTop/>
         <div className="pt-16">{children}</div>
       </body>
     </html>

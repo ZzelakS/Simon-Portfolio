@@ -200,3 +200,21 @@ body {
   50% { opacity: 1; }
   100% { opacity: 0.5; }
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
+.input-field {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: white;
+  outline: none;
+}
+
+.input-field::placeholder {
+  color: rgba(255, 255, 255, 0.55);
+}
