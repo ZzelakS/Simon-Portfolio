@@ -14,6 +14,7 @@ export default function Navbar() {
     { label: "Home", href: "/" },
     { label: "Dev", href: "/dev" },
     { label: "Creator", href: "/creator" },
+    { label: "CV", href: "/cv" }, // 👈 added
   ];
 
   useEffect(() => {
@@ -40,7 +41,7 @@ export default function Navbar() {
 
           {/* Logo */}
           <Link href="/" className="text-white font-bold text-xl tracking-wide">
-            Simon Okpe
+            Simon Okpe Alachi
           </Link>
 
           {/* Desktop Links */}
@@ -73,6 +74,7 @@ export default function Navbar() {
           <button
             className="md:hidden text-gray-300"
             onClick={() => setOpen((prev) => !prev)}
+            aria-label="Toggle menu"
           >
             ☰
           </button>

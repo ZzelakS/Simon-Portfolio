@@ -32,6 +32,7 @@ export default function DevPage() {
           CASE STUDIES
       ========================== */}
       <motion.section
+        id="projects"
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
@@ -207,7 +208,7 @@ export default function DevPage() {
       {/* =========================
           CTA
       ========================== */}
-      <section className="my-32 text-center">
+      <section id="contact" className="my-32 text-center">
         <CTA
           title="Have a system or product to build?"
           subtitle="Let’s talk."

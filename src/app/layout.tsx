@@ -23,8 +23,8 @@ export default function RootLayout({
         className={`${inter.className} bg-gray-900 text-white`}
       >
         <Navbar />
-        <BackToTop/>
         <div className="pt-16">{children}</div>
+        <BackToTop/>
       </body>
     </html>
   );

@@ -11,7 +11,7 @@ export default function Skills() {
         <div>
           <h3 className="font-semibold text-white">Product & Engineering</h3>
           <p className="text-gray-300">
-            React • Firebase • Node • APIs • VR/360 • Automation Logic
+            React JS • Next JS • Firebase • Node • APIs • VR/360 • Automation Logic
           </p>
         </div>
 
